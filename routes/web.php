@@ -26,6 +26,7 @@ Auth::routes();
     // });
 
 Route::get('/', [HomeController::class, 'index']);
+Route::post('/article/search', [HomeController::class, 'index'])->name('search.index');
 
 Route::middleware('auth')->group(function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

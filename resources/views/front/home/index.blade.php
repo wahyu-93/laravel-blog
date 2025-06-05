@@ -25,7 +25,11 @@
                         <div class="card mb-4" style="height: 34rem;">
                             <a href="#!"><img class="card-img-top" src="{{ asset('storage/back/article/' . $article->img ) }}" alt="belum ada foto" width="700px" height="350px" /></a>
                             <div class="card-body">
-                                <div class="small text-muted">{{ \Carbon\Carbon::parse($article->created_at)->format('F j, Y') }}</div>
+                                <div class="small text-muted">
+                                    {{ \Carbon\Carbon::parse($article->created_at)->format('F j, Y') }} |
+                                    {{ $article->Category->name }}
+                                </div>
+
                                 <h2 class="card-title h5">{{ $article->title }}</h2>
                                 <p class="card-text">{!! Illuminate\Support\Str::limit(strip_tags($article->description), 75) !!}</p>
                             </div>
@@ -38,17 +42,8 @@
                 @endforeach
             </div>
             <!-- Pagination-->
-            <nav aria-label="Pagination">
-                <hr class="my-0" />
-                <ul class="pagination justify-content-center my-4">
-                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                    <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                    <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">Older</a></li>
-                </ul>
+            <nav aria-label="Pagination" class="d-flex justify-content-center">
+                {!! $articles->links() !!}
             </nav>
         </div>
         <!-- Side widgets-->
