@@ -4,6 +4,7 @@ use App\Http\Controllers\Back\ArticleController;
 use App\Http\Controllers\Back\CategoryController;
 use App\Http\Controllers\Back\DashboardController;
 use App\Http\Controllers\Back\UserController;
+use App\Http\Controllers\Front\ArticleController as FrontArticleController;
 use App\Http\Controllers\Front\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,8 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index']);
 Route::post('/article/search', [HomeController::class, 'index'])->name('search.index');
+
+Route::get('/post/{slug}', [FrontArticleController::class, 'show'])->name('post.show');
 
 Route::middleware('auth')->group(function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
