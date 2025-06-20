@@ -29,6 +29,7 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index']);
 Route::post('/article/search', [HomeController::class, 'index'])->name('search.index');
 
+Route::get('/article', [FrontArticleController::class, 'index'])->name('article.index');
 Route::get('/post/{slug}', [FrontArticleController::class, 'show'])->name('post.show');
 
 Route::middleware('auth')->group(function() {
