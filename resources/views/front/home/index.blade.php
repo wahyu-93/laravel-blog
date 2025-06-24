@@ -14,7 +14,7 @@
                     <div class="small text-muted">{{ \Carbon\Carbon::parse($lastArticle->created_at)->format('F j, Y') }}</div>
                     <h2 class="card-title">{{ $lastArticle->title }}</h2>
                     <p class="card-text">{!! Illuminate\Support\Str::limit(strip_tags($lastArticle->description), 200) !!}</p>
-                    <a class="btn btn-primary" href="{{ route('post.show', $lastArticle->slug) }}">Read more →</a>
+                    <a class="btn btn-sm btn-danger float-end" href="{{ route('post.show', $lastArticle->slug) }}">Selengkapnya →</a>
                 </div>
             </div>
             <!-- Nested row for non-featured blog posts-->
@@ -35,7 +35,7 @@
                             </div>
 
                             <div class="card-footer" style="background-color: transparent; border-top: none;">
-                                 <a class="btn btn-primary" href="{{ route('post.show', $article->slug) }}">Read more →</a>
+                                 <a class="btn btn-sm btn-danger float-end" href="{{ route('post.show', $article->slug) }}">Selengkapnya →</a>
                             </div>
                         </div>
                     </div>

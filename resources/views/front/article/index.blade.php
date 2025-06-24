@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="card-footer" style="background-color: transparent; border-top: none;">
-                                 <a class="btn btn-primary" href="{{ route('post.show', $article->slug) }}">Read more →</a>
+                                 <a class="btn btn-sm btn-danger float-end" href="{{ route('post.show', $article->slug) }}">Selengkapnya →</a>
                             </div>
                         </div>
                     </div>
