@@ -18,7 +18,9 @@
         <div class="card-header">Categories</div>
         <div class="card-body">
             @foreach ($categories as $category)
-                <span class="badge bg-primary">{{ $category->name }}</span>
+                <a href="{{ route('category.index', $category->slug) }}" class="category-link">
+                    <span class="badge bg-primary">{{ $category->name }}</span>
+                </a>
             @endforeach
         </div>
     </div>

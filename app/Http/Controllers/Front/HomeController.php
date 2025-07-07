@@ -25,4 +25,10 @@ class HomeController extends Controller
       
         return view('front.home.index', compact('categories', 'lastArticle', 'articles'));
     }
+
+    public function about()
+    {
+        $categories = Category::get();
+        return view('front.about.index', compact('categories'));
+    }
 }

@@ -24,7 +24,8 @@ class ArticleController extends Controller
 
     public function show($slug)
     {
-        $article = Article::whereSlug($slug)->first();
+        $article = Article::whereSlug($slug)->firstOrFail();
+        $article->increment('views');
         $categories = Category::get();
 
         return view('front.article.show', compact('article', 'categories'));
