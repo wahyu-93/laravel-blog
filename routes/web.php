@@ -36,6 +36,8 @@ Route::get('/post/{slug}', [FrontArticleController::class, 'show'])->name('post.
 Route::get('/categrories/{slug}', [FrontCategoryController::class, 'index'])->name('category.index');
 
 Route::get('/about',[HomeController::class, 'about'])->name('about');
+Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
+
 
 Route::middleware('auth')->group(function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
