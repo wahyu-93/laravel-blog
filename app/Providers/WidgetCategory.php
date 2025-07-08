@@ -26,5 +26,11 @@ class WidgetCategory extends ServiceProvider
 
             $view->with('categoryNavbars', $categoryNavbars);
         });
+
+        View::composer('front.layout._side-widget', function ($view) {
+            $categories = Category::get();
+
+            $view->with('categories', $categories);
+        });
     }
 }

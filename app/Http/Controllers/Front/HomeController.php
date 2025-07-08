@@ -28,13 +28,11 @@ class HomeController extends Controller
 
     public function about()
     {
-        $categories = Category::get();
-        return view('front.about.index', compact('categories'));
+        return view('front.about.index');
     }
 
     public function contact()
     {
-        $categories = Category::get();
-        return view('front.contact.index', compact('categories'));
+        return view('front.contact.index');
     }
 }
