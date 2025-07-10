@@ -11,7 +11,7 @@ class CategoryController extends Controller
     public function index($slug)
     {
         // tampilkan seluruh artikel yang memeiliki category by slug
-        $articles = Article::with('category')->whereHas('category', function($query) use ($slug) {
+        $articles = Article::with('category')->where('status','1')->whereHas('category', function($query) use ($slug) {
             $query->where('slug', $slug);
         })->latest()->paginate(12);
 

@@ -24,7 +24,7 @@ class ArticleController extends Controller
 
     public function show($slug)
     {
-        $article = Article::whereSlug($slug)->firstOrFail();
+        $article = Article::with(['user'])->whereSlug($slug)->firstOrFail();
         $article->increment('views');
       
         return view('front.article.show', compact('article'));
