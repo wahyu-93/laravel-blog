@@ -8,7 +8,7 @@
         <!-- Blog entries-->
         <div class="col-lg-8">
             <!-- Featured blog post-->
-            <div class="card mb-4">
+            <div class="card mb-4" data-aos="fade-right">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d248.96424356436466!2d116.23807638428599!3d-3.2432756972916668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1spom%20bensin%20baharu!5e0!3m2!1sen!2sid!4v1751960012935!5m2!1sen!2sid" 
                     width="100%" height="450" style="border:0;" 
                     allowfullscreen="" 

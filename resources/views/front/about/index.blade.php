@@ -8,7 +8,7 @@
         <!-- Blog entries-->
         <div class="col-lg-8">
             <!-- Featured blog post-->
-            <div class="card mb-4">
+            <div class="card mb-4" data-aos="fade-right">
                  <a href="#">
                     <img class="mt-3 mx-auto d-block feature-about" src="{{ asset('front/img/about.jpeg') }}" alt="belum ada foto" />
                 </a>

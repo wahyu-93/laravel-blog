@@ -30,7 +30,14 @@ class WidgetCategory extends ServiceProvider
         });
 
         View::composer('front.layout._side-widget', function ($view) {
-            $categories = Category::get();
+            $categories = Category::withCount(['articles' => function($query){
+                $query->where('status','1');
+            }])->latest()->get();
+
+            // category yang memiliki article 0 tidak ditampilkan
+            // $categories = Category::whereHas('articles', function($query){
+            //     $query->where('status','1');
+            // })->withCount('articles')->latest()->get();
 
             $relatedPost = [];
             $slug = Request::segment(2);
@@ -52,7 +59,7 @@ class WidgetCategory extends ServiceProvider
                 'categories'    => $categories, 
                 'relatedPost'   => $relatedPost,
                 'populerPost'   => $populerPost,
-            ]);
+            ]); 
         });
     }
 }

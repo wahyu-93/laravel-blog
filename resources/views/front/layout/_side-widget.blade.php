@@ -19,7 +19,7 @@
         <div class="card-body">
             @foreach ($categories as $category)
                 <a href="{{ route('category.index', $category->slug) }}" class="category-link">
-                    <span class="badge bg-primary">{{ $category->name }}</span>
+                    <span class="badge bg-primary">{{ $category->name }} ({{$category->articles_count}})</span>
                 </a>
             @endforeach
         </div>

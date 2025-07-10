@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <!-- Blog entries-->
-        <div class="col-lg-12">
+        <div class="col-lg-12" data-aos="fade-up">
             {{-- pencarian --}}
             <div class="mb-3">
                 <form method="GET">
@@ -26,7 +26,7 @@
                 @foreach ($articles as $article)
                     <div class="col-md-4">
                         <!-- Blog post-->
-                        <div class="card mb-4" style="height: 34rem;" data-aos="fade-up">
+                        <div class="card mb-4" style="height: 34rem;">
                             <a href="{{ route('post.show', $article->slug) }}"><img class="card-img-top article-img" src="{{ asset('storage/back/article/' . $article->img ) }}" alt="belum ada foto"/></a>
                             <div class="card-body">
                                 <div class="small text-muted">
