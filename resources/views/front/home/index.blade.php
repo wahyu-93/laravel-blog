@@ -8,7 +8,7 @@
         <!-- Blog entries-->
         <div class="col-lg-8">
             <!-- Featured blog post-->
-            <div class="card mb-4">
+            <div class="card mb-4" data-aos="fade-right">
                 <a href="{{ route('post.show', $lastArticle->slug) }}"><img class="card-img-top feature-img" src="{{ asset('storage/back/article/' . $lastArticle->img ) }}" alt="belum ada foto" /></a>
                 <div class="card-body">
                     <div class="small text-muted">{{ \Carbon\Carbon::parse($lastArticle->created_at)->format('F j, Y') }}</div>
@@ -22,7 +22,7 @@
                 @foreach ($articles as $article)
                     <div class="col-lg-6">
                         <!-- Blog post-->
-                        <div class="card mb-4" style="height: 34rem;">
+                        <div class="card mb-4" style="height: 34rem;" data-aos="fade-up">
                             <a href="{{ route('post.show', $article->slug) }}"><img class="card-img-top article-img" src="{{ asset('storage/back/article/' . $article->img ) }}" alt="belum ada foto"/></a>
                             <div class="card-body">
                                 <div class="small text-muted">

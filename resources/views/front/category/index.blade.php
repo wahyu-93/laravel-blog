@@ -12,7 +12,7 @@
                 @forelse ($articles as $article)
                     <div class="col-md-4">
                         <!-- Blog post-->
-                        <div class="card mb-4" style="height: 34rem;">
+                        <div class="card mb-4" style="height: 34rem;" data-aos="fade-up">
                             <a href="{{ route('post.show', $article->slug) }}"><img class="card-img-top article-img" src="{{ asset('storage/back/article/' . $article->img ) }}" alt="belum ada foto"/></a>
                             <div class="card-body">
                                 <div class="small text-muted">

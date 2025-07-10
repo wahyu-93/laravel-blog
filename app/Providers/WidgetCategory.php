@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Article;
 use App\Models\Category;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -30,7 +32,27 @@ class WidgetCategory extends ServiceProvider
         View::composer('front.layout._side-widget', function ($view) {
             $categories = Category::get();
 
-            $view->with('categories', $categories);
+            $relatedPost = [];
+            $slug = Request::segment(2);
+            if($slug){
+                $idCategory = Article::where('slug', $slug)->first();
+            
+                $relatedPost = Article::where('status','1')
+                                        ->where('category_id', $idCategory->category_id)
+                                        ->where('id','<>',$idCategory->id)
+                                        ->orderBy('views', 'desc')
+                                        ->take(3)->get();
+            }
+
+            $populerPost = Article::where('status','1')
+                                    ->orderBy('views', 'desc')
+                                    ->take(5)->get();
+
+            $view->with([
+                'categories'    => $categories, 
+                'relatedPost'   => $relatedPost,
+                'populerPost'   => $populerPost,
+            ]);
         });
     }
 }
