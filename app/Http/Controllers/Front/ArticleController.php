@@ -12,10 +12,10 @@ class ArticleController extends Controller
     public function index(Request $request)
     {
         if($request->keyword==''){
-            $articles = Article::whereStatus('1')->latest()->paginate(12);
+            $articles = Article::whereStatus('1')->latest()->paginate(9);
         }
         else {
-            $articles = Article::where('title', 'like', '%'.$request->keyword.'%')->paginate(12);
+            $articles = Article::where('title', 'like', '%'.$request->keyword.'%')->paginate(9);
         };
 
         $keyword = $request->keyword;

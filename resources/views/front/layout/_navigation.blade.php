@@ -16,7 +16,7 @@
                             <li><a class="dropdown-item" href="{{ route('category.index', $category->slug) }}">{{ $category->name }}</a></li>    
                         @endforeach
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ url('article') }}">All Category</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.all') }}">All Category</a></li>
                     </ul>
 
                 </li>

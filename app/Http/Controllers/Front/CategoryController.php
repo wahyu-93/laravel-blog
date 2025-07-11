@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -16,5 +17,14 @@ class CategoryController extends Controller
         })->latest()->paginate(12);
 
         return view('front.category.index', compact('articles'));
+    }
+
+    public function allCategory()
+    {
+         $categories = Category::withCount(['articles' => function($query){
+                            $query->where('status','1');
+                        }])->latest()->get();
+                        
+        return view('front.category.all-category', compact('categories'));
     }
 }

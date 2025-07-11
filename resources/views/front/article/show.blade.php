@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <!-- Blog entries-->
-        <div class="col-lg-8">
+        <div class="col-lg-8" data-aos="fade-right">
             <!-- Featured blog post-->
             <div class="card mb-4">
                 <a href="{{ route('post.show', $article->slug) }}"><img class="card-img-top feature-img" src="{{ asset('storage/back/article/' . $article->img ) }}" alt="belum ada foto" /></a>
@@ -20,12 +20,12 @@
                     <p class="card-text">{!! $article->description !!}</p>
                     <h6>Share This Artikel</h6>
                     <div class="mt-2">
-                        <button class="btn btn-lg btn-primary">
+                        <a class="btn btn-lg btn-primary" href="https://www.facebook.com/sharer.php?u={{url()->current()}}" target="_blank">
                            <i class="fa-brands fa-facebook fa-xl"></i>
-                        </button>
-                        <button class="btn btn-lg btn-success">
+                        </a>
+                        <a class="btn btn-lg btn-success" href="https://api.whatsapp.com/send?text={{url()->current()}}" target="_blank">
                             <i class="fa-brands fa-whatsapp fa-xl"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -14,10 +14,10 @@ class HomeController extends Controller
         if(request()->keyword){
             $articles = Article::with(['Category'])
                         ->where('title', 'like', '%'. request()->keyword. '%')
-                        ->paginate(10);
+                        ->paginate(6);
         }
         else {
-            $articles = Article::with(['Category'])->latest()->paginate(10);
+            $articles = Article::with(['Category'])->latest()->paginate(6);
         };
 
         $categories = Category::get();

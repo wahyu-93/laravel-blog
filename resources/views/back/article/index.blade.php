@@ -27,6 +27,7 @@
                         <th>Views</th>
                         <th>Status</th>
                         <th>Publish Data</th>
+                        <th>Posted By</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -93,6 +94,10 @@
                     {
                         data: 'publish_date',
                         name: 'publish_date'
+                    },
+                    {
+                        data: 'user_id',
+                        name: 'user_id'
                     },
                     {
                         data:'button',

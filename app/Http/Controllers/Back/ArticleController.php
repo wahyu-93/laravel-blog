@@ -8,6 +8,7 @@ use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Str;
@@ -25,6 +26,9 @@ class ArticleController extends Controller
                 ->addIndexColumn()
                 ->addColumn('category_id', function($articles){
                     return $articles->Category->name;
+                })
+                ->addColumn('user_id', function($articles){
+                    return $articles->user->name;
                 })
                 ->addColumn('status', function($articles){
                     if($articles->status == 0){
@@ -74,6 +78,7 @@ class ArticleController extends Controller
 
         $article['img'] = $imgName;
         $article['slug'] = Str::slug($request->title);
+        $article['user_id'] = Auth::user()->id;
         
         Article::create($article);
 

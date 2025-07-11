@@ -33,11 +33,11 @@ Route::post('/article/search', [HomeController::class, 'index'])->name('search.i
 Route::get('/article', [FrontArticleController::class, 'index'])->name('article.index');
 Route::get('/post/{slug}', [FrontArticleController::class, 'show'])->name('post.show');
 
+Route::get('/categrories/all-category', [FrontCategoryController::class, 'allCategory'])->name('category.all');
 Route::get('/categrories/{slug}', [FrontCategoryController::class, 'index'])->name('category.index');
 
 Route::get('/about',[HomeController::class, 'about'])->name('about');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
-
 
 Route::middleware('auth')->group(function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
