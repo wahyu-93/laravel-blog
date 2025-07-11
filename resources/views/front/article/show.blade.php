@@ -12,7 +12,11 @@
                 <a href="{{ route('post.show', $article->slug) }}"><img class="card-img-top feature-img" src="{{ asset('storage/back/article/' . $article->img ) }}" alt="belum ada foto" /></a>
                 <div class="card-body">
                     <h2 class="card-title text-danger">{{ $article->title }}</h2>
-                    <div class="small text-muted">{{ \Carbon\Carbon::parse($article->created_at)->format('l, d M Y H:i') }} | Dilihat {{ $article->views }} Kali | Post By {{ $article->user->name }}</div>
+                    <div class="small text-muted">
+                        <i class="fa-solid fa-calendar-days me-2"></i>{{ \Carbon\Carbon::parse($article->created_at)->format('l, d M Y H:i') }} 
+                        <i class="fa-solid fa-eye mx-2"></i> Dilihat {{ $article->views }} Kali 
+                        <i class="fa-solid fa-pen-to-square mx-2"></i> Post By {{ $article->user->name }}
+                    </div>
                     <p class="card-text">{!! $article->description !!}</p>
                     <h6>Share This Artikel</h6>
                     <div class="mt-2">
