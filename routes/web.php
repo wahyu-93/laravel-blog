@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Back\ArticleController;
 use App\Http\Controllers\Back\CategoryController;
+use App\Http\Controllers\Back\ConfigController;
 use App\Http\Controllers\Back\DashboardController;
 use App\Http\Controllers\Back\UserController;
 use App\Http\Controllers\Front\ArticleController as FrontArticleController;
@@ -51,6 +52,7 @@ Route::middleware('auth')->group(function() {
      });
     
      Route::resource('users', UserController::class);
+     Route::resource('configs', ConfigController::class)->only(['index','edit','update']);
 }); 
 
 
